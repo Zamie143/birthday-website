@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍓 Mahiba's Birthday 🍵</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght=400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cute-sticker stick-1">🐱</div>
+    <div class="cute-sticker stick-2">🍓</div>
+    <div class="cute-sticker stick-3">🍵</div>
+    <div class="cute-sticker stick-4">🌸</div>
+    <div class="cute-sticker stick-5">🎀</div>
+    <div class="cute-sticker stick-6">🧸</div>
+    <div class="cute-sticker stick-8">✨</div>
+
+    <div id="introScreen">
+        <div class="cat">🐱</div>
+        <h1 class="introTitle">Mahiba's Birthday</h1>
+        <p class="subtitle">Blow the candle to unlock your surprise ✨</p>
+
+        <div class="simple-candle-container">
+            <div id="introFlame" class="candle-flame"></div>
+            <div class="candle-wick"></div>
+            <div class="candle-wax-body"></div>
+            <div class="candle-base-shadow"></div>
+        </div>
+
+        <button id="blowBtn">💨 Blow Candle</button>
+    </div>
+
+    <div id="mainWebsite" style="display:none;">
+
+        <section class="hero-scrapbook">
+            <div class="hero-left">
+                <h1>
+                    the girl who proved
+                    <span>"soulmates"</span>
+                    are real
+                </h1>
+                <p class="hero-caption">
+                    There are people who make the world quieter.
+                    And then there's you.
+                </p>
+            </div>
+            <div class="hero-right">
+                <img src="images/photo1.jpg" alt="Featured Photo" class="main-scrap-img">
+                <div class="film-strip">
+                    <img src="images/photo2.jpg" alt="Film Strip 1">
+                    <img src="images/photo3.jpg" alt="Film Strip 2">
+                </div>
+            </div>
+        </section>
+
+        <section class="traits-bar">
+            <span>Safe Space</span>
+            <span>Chosen Family</span>
+            <span>Soul Sister</span>
+            <span>Forever Duo</span>
+            <span>Always Her</span>
+        </section>
+
+        <section class="gallery">
+            <div class="polaroid">
+                <img src="images/photo5.jpg" alt="Prettiest Human">
+                <p>The prettiest human 💕</p>
+            </div>
+
+            <div class="polaroid">
+                <img src="images/photo6.jpg" alt="Main Character">
+                <p>Main character energy ✨</p>
+            </div>
+
+            <div class="polaroid">
+                <img src="images/photo7.jpg" alt="Birthday Queen">
+                <p>Birthday Queen 👑</p>
+            </div>
+        </section>
+
+        <section class="letter-card">
+            <h2>💌 A Letter For You</h2>
+            <p id="message" class="letter-text"></p>
+        </section>
+
+        <section class="cake">
+            <h2>🎂 Make A Wish</h2>
+            <button id="wishBtn">Click Here ✨</button>
+            
+            <div id="wishGrantedContainer" class="wish-reveal">
+                <div class="wish-divider"></div>
+                <div class="wish-content">
+                    <span class="sparkle-icon">✨</span>
+                    <h3>Your Wish Granted</h3>
+                    <p>May all your dreams come true today and always! 💖</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <audio id="birthdayMusic">
+        <source src="music/birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const blowBtn = document.getElementById("blowBtn");
+        const birthdayMusic = document.getElementById("birthdayMusic");
+        const introFlame = document.getElementById("introFlame");
+        const introScreen = document.getElementById("introScreen");
+        const mainWebsite = document.getElementById("mainWebsite");
+        const wishBtn = document.getElementById("wishBtn");
+        const wishGrantedContainer = document.getElementById("wishGrantedContainer");
+
+        const birthdayMessage = `To my favorite person,
+
+You are sunshine, comfort, laughter,
+and every beautiful memory wrapped
+into one human being.
+
+Thank you for existing.
+
+Happy Birthday 🍓🍵🐱💗`;
+
+        let i = 0;
+        function typeWriter() {
+            const message = document.getElementById("message");
+            if (i < birthdayMessage.length) {
+                message.innerHTML += birthdayMessage.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+            }
+        }
+
+        blowBtn.addEventListener("click", () => {
+            introFlame.classList.add("extinguished");
+            birthdayMusic.currentTime = 0;
+            birthdayMusic.play().catch(err => console.log(err));
+
+            setTimeout(() => {
+                introScreen.classList.add("fadeOut");
+                setTimeout(() => {
+                    introScreen.style.display = "none";
+                    mainWebsite.style.display = "block";
+                    typeWriter();
+                }, 1000);
+            }, 600);
+        });
+
+        wishBtn.addEventListener("click", () => {
+            wishGrantedContainer.classList.add("show");
+            wishBtn.style.transform = "scale(0.95)";
+            wishBtn.disabled = true;
+            wishBtn.innerHTML = "Wish Sent! ✨";
+        });
+    </script>
+</body>
+</html>

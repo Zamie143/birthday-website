@@ -1,0 +1,342 @@
+:root {
+    --matcha-deep: #4A5D39;
+    --matcha-medium: #6E8752;
+    --matcha-light: #9BB381;
+    --matcha-soft: #EBF2E4;
+    
+    --strawberry-deep: #C9667C;
+    --strawberry-medium: #EAA6B5;
+    --strawberry-soft: #FDF2F4;
+    
+    --cream-bg: #fffaf7;
+    --text-main: #332C2B;
+    --text-muted: #5E5351;
+}
+
+/* PREMIUM MULTI-LAYERED STRAWBERRY MATCHA BACKGROUND WITH TACTILE GRAIN EFFECT */
+body {
+    margin: 0;
+    background: 
+        radial-gradient(circle at top left, rgba(255, 220, 230, .8), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(150, 185, 111, .8), transparent 35%),
+        linear-gradient(135deg, #f8d9e1, #d8e5b8, #95b96f);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+/* Subtle Paper Grain Overlay Texture */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 12px 12px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* BASE TYPOGRAPHY */
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.introTitle {
+    font-size: 3.5rem;
+    color: var(--matcha-deep);
+    font-style: italic;
+    margin: 15px 0 5px 0;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+/* MAIN WEBSITE & REVEAL ANIMATION SYSTEM */
+#mainWebsite {
+    position: relative;
+    animation: pageReveal 0.9s ease-out;
+}
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* UNIFORM ANCHOR SAFETY RULES */
+.hero-scrapbook,
+.gallery,
+.letter-card {
+    position: relative;
+}
+
+/* HIGHLY VISIBLE CUTE FLOATING STICKERS WITH SOFT DROPSHADOWS */
+.cute-sticker {
+    position: fixed;
+    font-size: 32px;
+    z-index: 10;
+    opacity: 0.85;
+    pointer-events: none;
+    filter: drop-shadow(2px 4px 6px rgba(201, 102, 124, 0.35));
+    animation: aestheticFloat 4s ease-in-out infinite alternate;
+}
+
+/* Sticker Layout Around Content Modules */
+.stick-1 { top: 40px; left: 40px; animation-delay: 0s; }
+.stick-2 { top: 40px; right: 40px; animation-delay: 0.5s; }
+.stick-3 { bottom: 50px; left: 40px; animation-delay: 1s; }
+.stick-4 { bottom: 50px; right: 40px; animation-delay: 1.5s; }
+.stick-5 { top: 45%; left: 40px; animation-delay: 0.2s; font-size: 36px; }
+.stick-6 { top: 55%; right: 40px; animation-delay: 0.8s; font-size: 36px; }
+.stick-8 { bottom: 25%; left: 15%; animation-delay: 0.4s; font-size: 28px; }
+
+@keyframes aestheticFloat {
+    0% { transform: translateY(0) rotate(-5deg) scale(1); }
+    100% { transform: translateY(-15px) rotate(8deg) scale(1.05); }
+}
+
+/* HERO SCRAPBOOK MATTE-PAPER WRAPPER */
+.hero-scrapbook {
+    max-width: 950px;
+    margin: 80px auto 40px auto;
+    background: #fffaf7;
+    border: 4px solid rgba(255,255,255,.9);
+    border-radius: 32px;
+    padding: 60px 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.08),
+        0 0 0 12px rgba(255,255,255,.4);
+    transform: rotate(-1deg);
+    z-index: 2;
+}
+
+/* Scaled Down Hero Header for Laptop Protection */
+.hero-scrapbook h1 {
+    font-size: 5.2rem;
+    line-height: .95;
+    max-width: 500px;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--matcha-deep);
+    margin: 0 0 25px 0;
+    font-weight: 500;
+}
+
+.hero-scrapbook h1 span {
+    color: #d989a2;
+    font-style: italic;
+}
+
+.hero-left { flex: 1.1; }
+
+.hero-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* COLLAGE PHOTO STACK MODULE */
+.hero-right {
+    position: relative;
+    width: 400px;
+    height: 450px;
+}
+
+.main-scrap-img {
+    position: absolute;
+    width: 280px;
+    height: 380px;
+    right: 0;
+    top: 0;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transform: rotate(4deg);
+    border: 6px solid #fff;
+}
+
+.film-strip {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 180px;
+    transform: rotate(-6deg);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.film-strip img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 5px solid white;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+/* TRAITS TAPE BAR */
+.traits-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.traits-bar span {
+    background: rgba(234, 166, 181, 0.25);
+    color: var(--strawberry-deep);
+    padding: 8px 22px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    border-left: 3px solid var(--strawberry-medium);
+}
+
+/* STAGGERED PINTEREST POLAROID FEED */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 80px 0;
+    z-index: 2;
+}
+
+.polaroid {
+    width: 230px;
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.polaroid img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px 8px 0 0; }
+
+.polaroid p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    margin: 14px 0 0 0;
+    color: var(--text-main);
+}
+
+/* FIXED PINTEREST CASCADE VIA NTH-OF-TYPE CRITERIA */
+.gallery .polaroid:nth-of-type(1) { margin-top: 50px; transform: rotate(-5deg); }
+.gallery .polaroid:nth-of-type(2) { margin-top: 0; transform: rotate(3deg); }
+.gallery .polaroid:nth-of-type(3) { margin-top: 80px; transform: rotate(-2deg); }
+.gallery .polaroid:hover { transform: translateY(-8px) rotate(0deg) scale(1.02); z-index: 5; }
+
+/* EDITORIAL HANDWRITTEN LETTER CARD & CAKE WRAPPERS */
+.letter-card, .cake {
+    max-width: 650px;
+    margin: 50px auto;
+    background: #fffaf7;
+    padding: 55px 45px;
+    border-radius: 32px;
+    border: 4px solid rgba(255,255,255,0.7);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+    text-align: center;
+    z-index: 2;
+}
+
+.letter-card h2, .cake h2 { font-size: 2.5rem; color: var(--matcha-deep); margin-top: 0; margin-bottom: 25px; }
+
+.letter-text {
+    white-space: pre-line;
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+/* WISH ACTIONS MODULE */
+#wishBtn {
+    background: var(--matcha-medium);
+    color: white;
+    border: none;
+    padding: 15px 45px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(110, 135, 82, 0.15);
+    transition: background 0.3s;
+}
+#wishBtn:hover { background: var(--matcha-deep); }
+
+.wish-reveal { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.6s ease-in-out, opacity 0.5s; }
+.wish-reveal.show { max-height: 200px; opacity: 1; }
+.wish-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--strawberry-medium), transparent); margin: 35px auto; width: 65%; }
+.wish-content h3 { font-size: 2rem; color: var(--strawberry-deep); margin: 5px 0; }
+.wish-content p { font-size: 1.2rem; color: var(--text-muted); }
+
+/* BREAKOUT CANDLE MECHANICS */
+.simple-candle-container { position: relative; width: 120px; height: 180px; margin: 0 auto 40px auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.candle-wax-body { width: 44px; height: 100px; background: linear-gradient(180deg, var(--matcha-medium) 0%, var(--strawberry-medium) 100%); border-radius: 22px 22px 8px 8px; box-shadow: inset -6px 0 12px rgba(0, 0, 0, 0.06); z-index: 3; }
+.candle-wick { width: 3px; height: 14px; background: #3A3231; border-radius: 2px; margin-bottom: -2px; z-index: 2; }
+.candle-flame { width: 18px; height: 36px; background: radial-gradient(circle at 50% 80%, #ffffff 0%, #ffdf7a 35%, #f37626 75%, transparent 100%); border-radius: 50% 50% 40% 40%; margin-bottom: -2px; animation: simpleFlicker 0.15s infinite alternate; transform-origin: center bottom; z-index: 4; filter: drop-shadow(0 0 10px rgba(243, 118, 38, 0.5)); }
+.candle-flame.extinguished { opacity: 0; transform: scale(0); transition: all 0.35s ease-out; }
+.candle-base-shadow { width: 65px; height: 8px; background: rgba(74, 93, 57, 0.08); border-radius: 50%; margin-top: 4px; z-index: 1; }
+
+#introScreen { position: fixed; inset: 0; z-index: 9999; background: linear-gradient(180deg, var(--strawberry-soft) 0%, var(--matcha-soft) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+#blowBtn { background: var(--matcha-deep); color: white; border: none; padding: 15px 40px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; border-radius: 6px; cursor: pointer; box-shadow: 0 10px 25px rgba(74, 93, 57, 0.12); }
+
+.fadeOut { animation: slideAway 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+@keyframes slideAway { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@keyframes simpleFlicker { 0% { transform: rotate(-1deg) scaleX(0.96); } 100% { transform: rotate(1deg) scaleX(1.04); } }
+
+/* RESPONSIVE MEDIA BREAKPOINTS & MOBILE SCALING FACTOR PROTECTION */
+@media (max-width: 768px) {
+    .hero-scrapbook {
+        flex-direction: column;
+        padding: 35px 25px;
+        margin: 40px 15px;
+    }
+    
+    .hero-scrapbook h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-right {
+        width: 100%;
+        height: 420px;
+    }
+    
+    .polaroid {
+        margin-top: 0 !important;
+        transform: none !important;
+    }
+    
+    .cute-sticker {
+        font-size: 22px;
+    }
+}
