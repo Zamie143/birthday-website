@@ -340,3 +340,34 @@ h1, h2, h3 {
         font-size: 22px;
     }
 }
+/* --- MOBILE FIXES --- */
+@media (max-width: 768px) {
+    /* Stack hero elements vertically */
+    .hero-scrapbook {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px !important;
+        margin: 10px !important;
+    }
+
+    /* Shrink the hero image container */
+    .hero-right {
+        width: 100% !important;
+        height: 320px !important;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Resize the main polaroid stack for mobile */
+    .main-scrap-img {
+        width: 180px !important;
+    }
+
+    /* Ensure Wish reveal is fully visible */
+    .wish-reveal.show {
+        max-height: 400px !important; /* Plenty of space for mobile text */
+        opacity: 1;
+        padding: 10px;
+    }
+}
