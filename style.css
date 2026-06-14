@@ -363,29 +363,29 @@ h1, h2, h3 {
     .main-scrap-img {
         width: 180px !important;
     }
-
-    /* Fix for the Wish Reveal section */
-.wish-reveal { 
-    max-height: 0; 
-    opacity: 0; 
-    overflow: hidden; 
-    transition: all 0.6s ease-in-out; /* Smooth transition */
+/* Remove all previous max-height settings and use this instead */
+.wish-reveal {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
     text-align: center;
-    padding: 0 20px; /* Add padding so text doesn't touch edges */
+    width: 90%;          /* Ensures it doesn't hit screen edges */
+    margin: 0 auto;      /* Centers it */
 }
 
-/* When the "show" class is added via JavaScript */
-.wish-reveal.show { 
-    max-height: 500px; /* Increased height to ensure full content fits */
-    opacity: 1; 
-    margin-top: 20px; 
-    padding-bottom: 20px; /* Extra space at the bottom for mobile */
+.wish-reveal.show {
+    max-height: 1000px;  /* Set a high limit so it never cuts off content */
+    opacity: 1;
+    margin-top: 20px;
+    padding-bottom: 40px; /* Adds breathing room at the bottom */
 }
 
-/* Optional: Ensure the container doesn't force a width that causes clipping */
+/* Ensure the parent container doesn't block the growth */
 .cake {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    min-height: auto;    /* Crucial: allows section to grow */
+    padding-bottom: 50px;
 }
