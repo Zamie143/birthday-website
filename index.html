@@ -152,13 +152,23 @@ Happy Birthday 🍓🍵🐱💗`;
             }, 600);
         });
 
-        wishBtn.addEventListener("click", () => {
-            wishGrantedContainer.classList.add("show");
-            wishBtn.style.transform = "scale(0.95)";
-            wishBtn.disabled = true;
-            wishBtn.innerHTML = "Wish Sent! ✨";
+       wishBtn.addEventListener("click", () => {
+    // Show the section
+    wishGrantedContainer.classList.add("show");
+    
+    // Disable button
+    wishBtn.style.transform = "scale(0.95)";
+    wishBtn.disabled = true;
+    wishBtn.innerHTML = "Wish Sent! ✨";
+
+    // FIX: Auto-scroll to ensure it is visible
+    setTimeout(() => {
+        wishGrantedContainer.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
         });
-        
+    }, 100); // Small delay to wait for the animation to start
+});
     </script>
 </body>
 </html>
