@@ -13,29 +13,47 @@ document.getElementById("mainWebsite");
 const music =
 document.getElementById("birthdayMusic");
 
-blowBtn.addEventListener("click",()=>{
+const wishBtn =
+document.getElementById("wishBtn");
 
-    introFlame.style.opacity="0";
+const giftRevealPage =
+document.getElementById("giftRevealPage");
 
-    setTimeout(()=>{
+const giftLetter =
+document.getElementById("giftLetter");
 
-        alert("🎉 HAPPY BIRTHDAY BESTIE 🎂");
+/* ------------------ CANDLE ------------------ */
+
+blowBtn.addEventListener("click", () => {
+
+    introFlame.style.opacity = "0";
+
+    music.currentTime = 0;
+
+    music.play().catch(err => console.log(err));
+
+    setTimeout(() => {
 
         introScreen.classList.add("fadeOut");
 
-        mainWebsite.style.display="block";
+        setTimeout(() => {
 
-        music.play();
+            introScreen.style.display = "none";
 
-        typeWriter();
+            mainWebsite.style.display = "block";
 
-    },1000);
+            typeWriter();
+
+        }, 1000);
+
+    }, 600);
 
 });
 
-/* LETTER */
+/* ------------------ MAIN LETTER ------------------ */
 
 const birthdayMessage =
+
 `To my favorite person,
 
 You are sunshine, comfort, laughter,
@@ -46,46 +64,108 @@ Thank you for existing.
 
 Happy Birthday 🍓🍵🐱💗`;
 
-let i=0;
+let i = 0;
 
-function typeWriter(){
+function typeWriter() {
 
     const message =
     document.getElementById("message");
 
-    if(i < birthdayMessage.length){
+    if (i < birthdayMessage.length) {
 
         message.innerHTML +=
         birthdayMessage.charAt(i);
 
         i++;
 
-        setTimeout(typeWriter,40);
+        setTimeout(typeWriter, 40);
+
     }
+
 }
 
-/* WISH BUTTON */
+/* ------------------ GIFT LETTER ------------------ */
 
-document
-.getElementById("wishBtn")
-.addEventListener("click",()=>{
+/* ------------------ GIFT LETTER ------------------ */
 
-    alert("✨ Birthday Wish Sent ✨");
+// Remove the signature from the text so it doesn't get typed as plain text
+const giftMessage = `For your second lobe piercing.
+
+A few months ago, Ashmita and I were thinking about what to gift you for your birthday, and we came up with this little idea...
+
+"gold", because you're just as precious and loved in our lives 🤍
+
+We started saving money for this together.
+
+Yes, we know it's small (but cute, of course 🥹).
+
+We got what we could afford, especially with how crazy gold prices are right now.
+
+But nothing is more valuable than you.`;
+
+function startGiftTyping() {
+    giftLetter.innerHTML = "";
+    giftIndex = 0;
+    
+    // Hide signature initially
+    const signature = document.getElementById("giftSignature");
+    signature.style.display = "none";
+
+    function type() {
+        if (giftIndex < giftMessage.length) {
+            giftLetter.innerHTML += giftMessage.charAt(giftIndex);
+            giftIndex++;
+            setTimeout(type, 35);
+        } else {
+            // Typing finished, reveal the styled signature
+            signature.style.display = "block";
+            signature.style.fontSize = "7rem";
+signature.style.fontWeight = "900";
+signature.style.color = "#c9667c";
+        }
+    }
+    type();
+}
+/* ------------------ GIFT REVEAL ------------------ */
+
+wishBtn.addEventListener("click", () => {
+
+    wishBtn.disabled = true;
+
+    wishBtn.innerHTML = "Opened ✨";
+
+    giftRevealPage.classList.add("show");
+
+    giftRevealPage.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+    startGiftTyping();
 
 });
 
-/* FLOATING CATS + STRAWBERRIES */
+/* ------------------ FLOATING DECORATIONS ------------------ */
 
 const cuteThings = [
-"🐱",
-"🍓",
-"💗",
-"✨",
-"🌸",
-"🍵"
+
+    "🍓",
+    "🍵",
+    "🐱",
+    "🌸",
+    "🎀",
+    "✨",
+    "💌",
+    "💗",
+    "☁️",
+    "🧸"
+
 ];
 
-setInterval(()=>{
+setInterval(() => {
 
     const item =
     document.createElement("div");
@@ -94,37 +174,27 @@ setInterval(()=>{
 
     item.innerHTML =
     cuteThings[
-    Math.floor(
-    Math.random()
-    *cuteThings.length
-    )];
+        Math.floor(
+            Math.random() *
+            cuteThings.length
+        )
+    ];
 
     item.style.left =
-    Math.random()*100+"vw";
+    Math.random() * 100 + "vw";
 
     item.style.bottom =
     "-20px";
 
     item.style.animationDuration =
-    (5+Math.random()*5)+"s";
+    (5 + Math.random() * 5) + "s";
 
     document.body.appendChild(item);
 
-    setTimeout(()=>{
+    setTimeout(() => {
+
         item.remove();
-    },10000);
 
-},600);
-const cuteThings = [
+    }, 10000);
 
-"🍓",
-"🍵",
-"🐱",
-"🌸",
-"🎀",
-"✨",
-"💌",
-"💗",
-"☁️"
-
-];
+}, 600);

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +9,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght=400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,7 +24,7 @@
     <div class="cute-sticker stick-8">✨</div>
 
     <div id="introScreen">
-        <div class="cat">🐱</div>
+        
         <h1 class="introTitle">Mahiba's Birthday</h1>
         <p class="subtitle">Blow the candle to unlock your surprise ✨</p>
 
@@ -42,7 +43,7 @@
         <section class="hero-scrapbook">
             <div class="hero-left">
                 <h1>
-                    the girl who proved
+                    The girl who proved
                     <span>"soulmates"</span>
                     are real
                 </h1>
@@ -54,7 +55,6 @@
             <div class="hero-right">
                 <img src="images/photo1.jpg" alt="Featured Photo" class="main-scrap-img">
                 <div class="film-strip">
-                   
                 </div>
             </div>
         </section>
@@ -92,16 +92,22 @@
         <section class="cake">
             <h2>🎂 Make A Wish</h2>
             <button id="wishBtn">Click Here ✨</button>
-            
-            <div id="wishGrantedContainer" class="wish-reveal">
-                <div class="wish-divider"></div>
-                <div class="wish-content">
-                    <span class="sparkle-icon">✨</span>
-                    <h3>Your Wish Granted</h3>
-                    <p>May all your dreams come true today and always! 💖</p>
-                </div>
-            </div>
         </section>
+    </div>
+
+    <div id="giftRevealPage" class="gift-reveal-page">
+        <h1 class="gift-heading">✨ 21-Carat Gold Earrings For Our Golden Girl ✨</h1>
+        <div class="gift-image-wrapper">
+            <img src="images/gold-earrings.jpg" alt="Gift" class="gift-image">
+        </div>
+      <div class="gift-letter-card">
+    <p id="giftLetter"></p>
+
+    <div id="giftSignature" class="signature">
+        With love,<br>
+        Ashmita & Zaima 💌
+    </div>
+</div>
     </div>
 
     <audio id="birthdayMusic">
@@ -115,19 +121,19 @@
         const introScreen = document.getElementById("introScreen");
         const mainWebsite = document.getElementById("mainWebsite");
         const wishBtn = document.getElementById("wishBtn");
-        const wishGrantedContainer = document.getElementById("wishGrantedContainer");
+        
+        // ADDED MISSING CONSTS
+        const giftRevealPage = document.getElementById("giftRevealPage");
+        const giftLetter = document.getElementById("giftLetter");
 
-        const birthdayMessage = `To my favorite person,
+        const birthdayMessage = `To my favorite person,\n\nYou are sunshine, comfort, laughter,\nand every beautiful memory wrapped\ninto one human being.\n\nThank you for existing.\n\nHappy Birthday 🍓🍵🐱💗`;
 
-You are sunshine, comfort, laughter,
-and every beautiful memory wrapped
-into one human being.
-
-Thank you for existing.
-
-Happy Birthday 🍓🍵🐱💗`;
+        // ADDED GIFT MESSAGE
+        const giftMessage = `For your second lobe piercing.\n\nA few months ago, Ashmita and I were thinking about what to gift you for your birthday, and we came up with this little idea...\n\n"gold", because you're just as precious and loved in our lives 🤍\n\nWe started saving money for this together.\n\nYes, we know it's small (but cute, of course 🥹).\n\nWe got what we could afford, especially with how crazy gold prices are right now.\n\nBut nothing is more valuable than you.\n\nWith love,\n\nAshmita & Zaima 💌`;
 
         let i = 0;
+        let giftIndex = 0;
+
         function typeWriter() {
             const message = document.getElementById("message");
             if (i < birthdayMessage.length) {
@@ -135,6 +141,19 @@ Happy Birthday 🍓🍵🐱💗`;
                 i++;
                 setTimeout(typeWriter, 40);
             }
+        }
+
+        // ADDED TYPING FUNCTION
+        function startGiftTyping() {
+            giftLetter.innerHTML = "";
+            function type() {
+                if (giftIndex < giftMessage.length) {
+                    giftLetter.innerHTML += giftMessage.charAt(giftIndex);
+                    giftIndex++;
+                    setTimeout(type, 35);
+                }
+            }
+            type();
         }
 
         blowBtn.addEventListener("click", () => {
@@ -151,19 +170,17 @@ Happy Birthday 🍓🍵🐱💗`;
                 }, 1000);
             }, 600);
         });
-wishBtn.addEventListener("click", () => {
-    wishGrantedContainer.classList.add("show");
-    wishBtn.disabled = true;
-    wishBtn.innerHTML = "Wish Sent! ✨";
 
-    // Wait for the animation to finish, then scroll
-    setTimeout(() => {
-        wishGrantedContainer.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' // Aligns to the top of the container
+        wishBtn.addEventListener("click", () => {
+            if(!giftRevealPage) return;
+            wishBtn.disabled = true;
+            wishBtn.innerHTML = "Opened ✨";
+            giftRevealPage.classList.add("show");
+            giftRevealPage.scrollIntoView({ behavior: "smooth" });
+            if(giftLetter){
+                startGiftTyping();
+            }
         });
-    }, 500);
-});
     </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 :root {
     --matcha-deep: #4A5D39;
     --matcha-medium: #6E8752;
@@ -388,4 +389,200 @@ h1, h2, h3 {
     align-items: center;
     min-height: auto;    /* Crucial: allows section to grow */
     padding-bottom: 50px;
+}}
+.gift-reveal-page{
+
+    display:none;
+
+    margin-top:80px;
+
+    animation:fadeGift 1.5s ease;
+
+}
+
+.gift-reveal-page.show{
+    display:block;
+}
+
+.gift-heading{
+
+    text-align:center;
+
+    font-family:'Caveat',cursive;
+
+    font-size:4rem;
+
+    color:#8c5a75;
+
+    margin-bottom:40px;
+
+}
+
+.gift-image-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:40px;
+
+}
+
+.gift-image{
+
+    width:420px;
+
+    max-width:95%;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.15);
+
+    animation:giftPop 1.6s ease;
+
+}
+
+.gift-letter-card{
+
+    background:white;
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    line-height:2;
+
+    color:#555;
+
+    font-size:1.15rem;
+
+    white-space:pre-line;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+@keyframes giftPop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.7)
+        rotate(-5deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        rotate(0);
+
+    }
+
+}
+
+@keyframes fadeGift{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* Cute Pinkish Font Styles */
+#giftLetter {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: #d67b8d; /* Soft pink-rose color */
+    line-height: 1.6;
+}
+
+
+
+@keyframes signaturePop{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+/* Ensure the page is hidden initially */
+.gift-reveal-page {
+    display: none;
+}
+
+.gift-reveal-page.show {
+    display: block;
+}
+
+/* Signature Styling */
+.signature {
+    display: none;
+
+    font-family: 'Caveat', cursive !important;
+
+    font-size: 7rem !important;
+
+    font-weight: 900 !important;
+
+    color: #c9667c !important;
+
+    text-align: center;
+
+    line-height: 1.1;
+
+    margin-top: 50px;
+
+    text-shadow:
+        0 0 25px rgba(201,102,124,.35);
+}
+#giftSignature{
+    display:none;
+
+    font-family:'Caveat', cursive;
+
+    font-size:12rem;
+
+    font-weight:700;
+
+    color:#ff8fb1;
+
+    text-align:center;
+
+    margin-top:80px;
+
+    line-height:1.15;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 4px 12px rgba(255,143,177,.25);
+
+    transform:rotate(-2deg);
 }
