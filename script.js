@@ -62,7 +62,7 @@ into one human being.
 
 Thank you for existing.
 
-Happy Birthday 🍓🍵🐱💗`;
+Happy Birthday 🍓🍵`;
 
 let i = 0;
 
@@ -97,7 +97,7 @@ A few months ago, Ashmita and I were thinking about what to gift you for your bi
 
 We started saving money for this together.
 
-Yes, we know it's small (but cute, of course 🥹).
+Yes, we know it's small (but cute, of course ).
 
 We got what we could afford, especially with how crazy gold prices are right now.
 

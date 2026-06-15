@@ -674,3 +674,7 @@ h1, h2, h3 {
         font-size: 1.5rem;
     }
 }
+.hero-left h1 {
+    line-height: 1.2;    /* Keeps the lines close together */
+    max-width: 500px;    /* Prevents the text from stretching too wide */
+}
