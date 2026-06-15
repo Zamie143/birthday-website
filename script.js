@@ -91,7 +91,7 @@ function typeWriter() {
 // Remove the signature from the text so it doesn't get typed as plain text
 const giftMessage = `For your second lobe piercing.
 
-A few months ago, Ashmita and I were thinking about what to gift you for your birthday, and we came up with this little idea...
+A few months ago, we were thinking about what to gift you for your birthday, and we came up with this little idea...
 
 "gold", because you're just as precious and loved in our lives 🤍
 
