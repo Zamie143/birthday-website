@@ -95,8 +95,12 @@
     </div>
 
     <div id="giftRevealPage" class="gift-reveal-page">
-        <h1 class="gift-heading">Gold earrings for our golden girl...
-Btw this is 21-carat 👉🏼👈🏻</h1>
+       <h1 class="gift-heading">
+    Gold earrings for our golden girl...<br>
+    <span class="carat-note">
+        Btw this is 21-carat 👉🏼👈🏻
+    </span>
+</h1>
         <div class="gift-image-wrapper">
             <img src="images/gold-earrings.jpg" alt="Gift" class="gift-image">
         </div>
@@ -114,73 +118,7 @@ Btw this is 21-carat 👉🏼👈🏻</h1>
         <source src="music/birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-    <script>
-        const blowBtn = document.getElementById("blowBtn");
-        const birthdayMusic = document.getElementById("birthdayMusic");
-        const introFlame = document.getElementById("introFlame");
-        const introScreen = document.getElementById("introScreen");
-        const mainWebsite = document.getElementById("mainWebsite");
-        const wishBtn = document.getElementById("wishBtn");
-        
-        // ADDED MISSING CONSTS
-        const giftRevealPage = document.getElementById("giftRevealPage");
-        const giftLetter = document.getElementById("giftLetter");
-
-        const birthdayMessage = `To my favorite person,\n\nYou are sunshine, comfort, laughter,\nand every beautiful memory wrapped\ninto one human being.\n\nThank you for existing.\n\nHappy Birthday 🍓🍵🐱💗`;
-
-        // ADDED GIFT MESSAGE
-        const giftMessage = `For your second lobe piercing.\n\nA few months ago, Ashmita and I were thinking about what to gift you for your birthday, and we came up with this little idea...\n\n"gold", because you're just as precious and loved in our lives 🤍\n\nWe started saving money for this together.\n\nYes, we know it's small (but cute, of course 🥹).\n\nWe got what we could afford, especially with how crazy gold prices are right now.\n\nBut nothing is more valuable than you.\n\nWith love,\n\nAshmita & Zaima 💌`;
-
-        let i = 0;
-        let giftIndex = 0;
-
-        function typeWriter() {
-            const message = document.getElementById("message");
-            if (i < birthdayMessage.length) {
-                message.innerHTML += birthdayMessage.charAt(i);
-                i++;
-                setTimeout(typeWriter, 40);
-            }
-        }
-
-        // ADDED TYPING FUNCTION
-        function startGiftTyping() {
-            giftLetter.innerHTML = "";
-            function type() {
-                if (giftIndex < giftMessage.length) {
-                    giftLetter.innerHTML += giftMessage.charAt(giftIndex);
-                    giftIndex++;
-                    setTimeout(type, 35);
-                }
-            }
-            type();
-        }
-
-        blowBtn.addEventListener("click", () => {
-            introFlame.classList.add("extinguished");
-            birthdayMusic.currentTime = 0;
-            birthdayMusic.play().catch(err => console.log(err));
-
-            setTimeout(() => {
-                introScreen.classList.add("fadeOut");
-                setTimeout(() => {
-                    introScreen.style.display = "none";
-                    mainWebsite.style.display = "block";
-                    typeWriter();
-                }, 1000);
-            }, 600);
-        });
-
-        wishBtn.addEventListener("click", () => {
-            if(!giftRevealPage) return;
-            wishBtn.disabled = true;
-            wishBtn.innerHTML = "Opened ✨";
-            giftRevealPage.classList.add("show");
-            giftRevealPage.scrollIntoView({ behavior: "smooth" });
-            if(giftLetter){
-                startGiftTyping();
-            }
-        });
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>

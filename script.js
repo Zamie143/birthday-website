@@ -119,9 +119,7 @@ function startGiftTyping() {
         } else {
             // Typing finished, reveal the styled signature
             signature.style.display = "block";
-            signature.style.fontSize = "7rem";
-signature.style.fontWeight = "900";
-signature.style.color = "#c9667c";
+          
         }
     }
     type();
